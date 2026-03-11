@@ -7,6 +7,12 @@ WHERE  D.id=53;
 
 -- 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di
 -- Neuroscienze
+SELECT DEG.ID DEGREE_ID, DEG.NAME, DEG.level, DEP.id department_id, DEP.NAME
+FROM degrees DEG
+JOIN departments DEP
+ON DEG.department_id = DEP.id
+WHERE DEG.LEVEL = 'MAGISTRALE'
+AND DEP.ID = 7;
 
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 
