@@ -46,6 +46,21 @@ ON CT.teacher_id = T.id;
 
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
 -- Matematica (54)
+SELECT T.*
+FROM teachers T
+JOIN course_teacher CT
+ON T.id = CT.teacher_id
+JOIN courses C
+ON CT.course_id = C.id
+JOIN degrees DEG 
+ON C.degree_id = DEG.id
+JOIN departments DEP
+ON DEG.department_id = DEP.id
+WHERE DEP.name = 'Dipartimento di Matematica'
+GROUP BY T.id
+ORDER BY T.id;
+
+
 
 -- 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
 -- per ogni esame, stampando anche il voto massimo. Successivamente,
